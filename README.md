@@ -18,12 +18,7 @@
 
 ## Known Bugs
 
-## Specs
-<details>
-<summary> Checkout Specs</summary>
-| Test  | Input | Output  |
-| :---: | :---: |  :---:  |
-</details>
+
 ## Legal
 * Copyright © 2020 Max Brockbank
 * This software is licensed under the MIT license
