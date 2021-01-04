@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model UniversityTracker.Models.Course
+
+<h3>Course Information</h3>
+
+<h3>Course Name: @Html.DisplayFor(model => model.Name)</h3>
+<h3>Course Number: @Html.DisplayFor(model => model.Number)</h3>
+
+@if(@Model.Students.Count == 0)
+{
+  <p> There are no students in the class, it must be boring</p>
+}
+else
+{
+  <h3>Students in this course:</h3>
+  <ul>
+  @foreach(var join in Model.Students)
+  {
+    <li>@join.Student.Name</li>
+  }
+  </ul>
+}

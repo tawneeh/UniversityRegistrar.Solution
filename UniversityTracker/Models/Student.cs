@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+
 namespace UniversityTracker.Models
 {
   public class Student

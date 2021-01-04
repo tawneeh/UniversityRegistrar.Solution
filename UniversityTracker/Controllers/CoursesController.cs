@@ -15,6 +15,11 @@ namespace UniversityTracker.Controllers
       _db = db;
     }
 
+    public ActionResult Index()
+    {
+      return View(_db.Courses.ToList());
+    }
+
     public ActionResult Create()
     {
       ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "Name"); // Course can belong to Student that already exists
@@ -31,6 +36,15 @@ namespace UniversityTracker.Controllers
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+        var thisCourse = _db.Courses
+          .Include(course => course.Students)
+          .ThenInclude(join => join.Student)
+          .FirstOrDefault(course => course.CourseId == id);
+        return View(thisCourse);
     }
   }
 }

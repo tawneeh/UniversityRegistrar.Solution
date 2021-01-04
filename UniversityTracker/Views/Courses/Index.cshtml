@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using UniversityTracker.Models;
+@model List<UniversityTracker.Models.Course>;
+
+<h3>Courses</h3>
+
+@if (@Model.Count == 0)
+{
+  <h3>No courses added yet...</h3>
+}
+
+@foreach (Course course in Model)
+{
+  <li>@Html.ActionLink($"{course.Name}", "Details", new { id = course.CourseId })</li>
+}
+
+<p>@Html.ActionLink("Add a course already!", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
