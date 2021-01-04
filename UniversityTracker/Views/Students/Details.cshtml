@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model UniversityTracker.Models.Student
+
+<h3>Student Details</h3>
+
+<h3>Name: @Html.DisplayFor(model => model.Name)</h3>
+<h3>Enrollment Date: @Html.DisplayFor(model => model.EnrollmentDate)</h3>
+
+@if(@Model.Courses.Count == 0)
+{
+  <p>This joker isn't in any classes yet!</p>
+}
+else
+{
+  <h3>Course this student is taking</h3>
+  <ul>
+  @foreach(var join in Model.Courses)
+  {
+    <li>@join.Course.Name</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to Student List", "Index")</p>

@@ -15,9 +15,24 @@ namespace UniversityTracker.Controllers
       _db = db; 
     }
 
+    public ActionResult Index()
+    {
+      List<Student> model = _db.Students.ToList();
+      return View(model);
+    }
+
     public ActionResult Create()
     {
       return View();
+    }
+
+    public ActionResult Details (int id)
+    {
+        var thisStudent = _db.Students
+          .Include(student => student.Courses)
+          .ThenInclude(join => join.Course)
+          .FirstOrDefault(student => student.StudentId == id);
+        return View(thisStudent);
     }
 
     [HttpPost]
@@ -27,5 +42,6 @@ namespace UniversityTracker.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
   }
 }

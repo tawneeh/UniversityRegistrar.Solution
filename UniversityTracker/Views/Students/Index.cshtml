@@ -1,0 +1,14 @@
+@{
+  Layout="_Layout";
+}
+
+@using UniversityTracker.Models;
+@model List<UniversityTracker.Models.Student>;
+
+<h1>Students</h1>
+<ul>
+@foreach(Student student in Model)
+{
+  <li>@Html.ActionLink($"{@student.Name}", "Details", new { id=student.StudentId})</li>
+}
+</ul>

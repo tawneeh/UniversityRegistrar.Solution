@@ -27,7 +27,7 @@ namespace UniversityTracker
 
       services.AddEntityFrameworkMySql()
         .AddDbContext<UniversityTrackerContext>(options => options
-        .UseMySql(Configuration["ConnectionString: DefaultConnection"]));
+        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
     public void Configure(IApplicationBuilder app)
