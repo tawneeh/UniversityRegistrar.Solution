@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model UniversityTracker.Models.Student
+<h1>Add a new Student</h1>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    @Html.LabelFor(model => model.EnrollmentDate)
+    @Html.TextBoxFor(model => model.EnrollmentDate)
+    <input type="submit" value="Add a new student" class="btn btn-info" />
+}
