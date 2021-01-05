@@ -56,5 +56,20 @@ namespace UniversityTracker.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Delete(int id)
+    {
+        var thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
+        return View(thisStudent);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
+      _db.Students.Remove(thisStudent);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

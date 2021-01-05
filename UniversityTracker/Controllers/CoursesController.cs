@@ -98,5 +98,14 @@ namespace UniversityTracker.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     } 
+
+    [HttpPost]
+    public ActionResult DeleteRemove(int joinId)
+    {
+      var joinEntry = _db.Enrollment.FirstOrDefault(entry => entry.EnrollmentId == joinId);
+      _db.Enrollment.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

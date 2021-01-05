@@ -20,7 +20,7 @@ else
   @foreach(var join in Model.Students)
   {
     <li>@join.Student.Name</li>
-    @using (Html.BeginForm("DeleteStudent", "Courses"))
+    @using (Html.BeginForm("DeleteRemove", "Courses"))
     {
       @Html.Hidden("joinId", @join.EnrollmentId)
       <input type="submit" value="Delete" />
