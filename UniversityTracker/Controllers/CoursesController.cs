@@ -50,6 +50,7 @@ namespace UniversityTracker.Controllers
     public ActionResult Edit(int id)
     {
       var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+      ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "Name");
       return View(thisCourse);
     }
 
