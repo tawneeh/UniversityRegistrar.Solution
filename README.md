@@ -13,7 +13,7 @@ This application will allow a user to create and organize University Students an
 
 Software Requirements
 * An internet browser of your choice; I prefer Chrome
-* A code editor; I prefer VSCode
+* A code editor; I prefer VSCode◊
 
 Open by Downloading or Cloning
 * Navigate to <https://github.com/tawneeh/UniversityRegistrar.Solution.git>
@@ -22,7 +22,7 @@ Open by Downloading or Cloning
 
 Setup Instructions
 * To build your database go to the appsettings.json file and update your Server, Port, UID, and Password as necessary
-* Navigate to UniversityRegistrar.Solution/UniversityTracker and type `dotnet ef migrations add New` into the terminal
+* Navigate to UniversityRegistrar.Solution/UniversityTracker and type `dotnet ef migrations add <MigrationName>` into the terminal
 * Then, type `dotnet ef database update` into the terminal to create your database tables
 * Navigate to UniversityRegistrar.Solution/UniversityTracker and type `dotnet restore` into the terminal
 * Then, in the same project folder, type `dotnet build` into the terminal followed by `dotnet run`
