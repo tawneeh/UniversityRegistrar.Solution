@@ -26,7 +26,15 @@ namespace UniversityTracker.Controllers
       return View();
     }
 
-    public ActionResult Details (int id)
+    [HttpPost]
+    public ActionResult Create(Student student)
+    {
+      _db.Students.Add(student);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
     {
         var thisStudent = _db.Students
           .Include(student => student.Courses)
@@ -35,13 +43,18 @@ namespace UniversityTracker.Controllers
         return View(thisStudent);
     }
 
-    [HttpPost]
-    public ActionResult Create (Student student)
+    public ActionResult Edit(int id)
     {
-      _db.Students.Add(student);
+      var thisStudent = _db.Students.FirstOrDefault(student => student.StudentId == id);
+      return View(thisStudent);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Student student)
+    {
+      _db.Entry(student).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
   }
 }
