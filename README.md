@@ -105,4 +105,4 @@ This application has no known bugs.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2020 **_Tawnee Harris, Max Brockbank and David Sterry_**
+Copyright (c) 2021 **_Tawnee Harris, Max Brockbank and David Sterry_**
